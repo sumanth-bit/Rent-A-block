@@ -1,0 +1,52 @@
+<!--<style>
+.container{
+  background-image: url('../assets/images/loginbc.jpg');
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: Cover;
+}
+</style>-->
+<style>
+.row {
+    position: relative;
+    background: #fff url('https://assets.entrepreneur.com/content/3x2/2000/20190201161541-GettyImages-500047599.jpeg') center center;/*slide.jpg =>you image*/
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    overflow: hidden;
+}
+</style>
+
+
+
+<div class="row" >
+  <div class="col-md-6 offset-md-3 mt-4">
+    <h3>Login</h3>
+    <form #f="ngForm" >
+  <div class="form-group">
+    <label for="loginemail">Email</label>
+    <input type="email" name="email" [(ngModel)]="loginUserData.email"
+    class="form-control" id="loginemail" placeholder="Enter Email" required >
+  </div>
+  <div class="form-group">
+    <label for="loginPassword">Password</label>
+    <input type="password" name="password" [(ngModel)]="loginUserData.password"
+    class="form-control" id="loginPassword" placeholder="Enter Password" required>
+  </div>
+  <div class="form-group">
+      <button (click)="loginUser()" type="submit" class="btn btn-success" [disabled]="!f.valid" >Login</button>
+  </div>
+  <small class="text-muted ml-2">
+       <a routerLink="/reset-password" routerLinkActive="active">Forgot Password?</a>
+      </small>
+
+</form>
+
+<div class="border-top pt-3">
+<small class="text-muted">
+Need an account ?<a class='ml-2' routerLink="/register" routerLinkActive="active">Sign Up Now</a>
+</small>
+
+</div>
+  </div>
+  </div>

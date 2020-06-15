@@ -7,18 +7,25 @@ import { AboutComponent } from './about/about.component';
 import { ContactComponent } from './contact/contact.component';
 import { FooterComponent } from './footer/footer.component';
 import { NavigationComponent } from './navigation/navigation.component';
+import { AuthGuard } from './auth.guard';
 
+import { LoginComponent } from './login/login.component';
+import { RegisterComponent } from './register/register.component';
+import { ResetPasswordComponent } from './reset-password/reset-password.component';
 
 const routes: Routes = [
-  {path: 'rentyourspace' , component:RentyourspaceComponent},
+  {path: 'rentyourspace' , component:RentyourspaceComponent, canActivate:[AuthGuard]},
   {path: 'home' , component: HomeComponent},
-  {path: 'rentnearyou' , component:RentnearyouComponent},
+  {path: 'rentnearyou' , component:RentnearyouComponent,canActivate:[AuthGuard]},
   {path: 'about' , component:AboutComponent },
   {path: 'contact' , component:ContactComponent },
   {path: 'footer', component: FooterComponent},
   {path: 'navigation', component: NavigationComponent},
 
-  {path: "" , component: HomeComponent, pathMatch:"full"}
+  {path:'', redirectTo:'/home', pathMatch:"full"},
+  {path: 'login' , component: LoginComponent},
+  {path: 'register' , component: RegisterComponent},
+  {path: 'reset-password' , component: ResetPasswordComponent}
 
 ];
 

@@ -8,6 +8,16 @@
     overflow: hidden;
 }
 </style>
+<script type="text/javascript">
+  function validate()
+  {
+    if(f.password.value.length<6)
+    {
+      alert("password length should be greater than 6");
+    }
+  }
+
+</script>
 
 <div class="row">
   <div class="col-md-6 offset-md-3 mt-4">
@@ -21,18 +31,24 @@
   <div class="form-group">
     <label for="registerEmail">Email address</label>
     <input [(ngModel)]="registerUserData.email" type="email" name="email"
-    class="form-control" id="registerEmail" placeholder="Enter Email">
+    class="form-control" id="registerEmail" placeholder="Enter Email" required>
 
   </div>
   <div class="form-group">
     <label for="registerPassword">Password</label>
-    <input [(ngModel)]="registerUserData.password" type="password" name="password"
-    class="form-control" id="registerPassword" placeholder="Enter Password">
+    <input type="password" name="password" [(ngModel)]="registerUserData.password"
+    class="form-control" id="registerPassword" placeholder="Enter Password" required>
   </div>
+<!--  <div class="form-group">
+    <label for="ConfirmPassword">Password</label>
+    <input type="password" name="Confirmpassword" [(ngModel)]="registerUserData.Confirmpassword"
+    class="form-control" id="ConfirmPassword" placeholder="Confirm Password" match="#password" required>
+  </div> -->
+
   <div class="form-group">
     <label for="number">Phone number</label>
     <input [(ngModel)]="registerUserData.number" type="number" name="number"
-    class="form-control" id="registerNumber" placeholder="Enter Phone number">
+    class="form-control" id="registerNumber" placeholder="Enter Phone number"required>
   </div>
   <div class="form-group">
       <button (click)="registerUser()" type="submit" class="btn btn-primary" [disabled]="!f.valid">Register</button>
